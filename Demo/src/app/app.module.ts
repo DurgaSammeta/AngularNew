@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { RegComponent } from './main/main.component';
 import { RegService } from './service/app.service';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
@@ -10,7 +10,7 @@ import {RouterModule} from "@angular/router";
 import {LoginComponent} from "./login/login.component";
 @NgModule({
   declarations: [
-    AppComponent, LoginComponent
+    RegComponent, LoginComponent
       ],
   imports: [
     BrowserModule,
@@ -19,6 +19,6 @@ import {LoginComponent} from "./login/login.component";
      RouterModule.forRoot([{path:"login_page", component:LoginComponent}])
   ],
   providers: [RegService],
-  bootstrap: [AppComponent]
+  bootstrap: [RegComponent]
 })
 export class AppModule { }

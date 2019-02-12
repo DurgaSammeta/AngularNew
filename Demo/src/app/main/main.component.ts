@@ -5,10 +5,10 @@ import {FormGroup, FormControlName, FormControl} from "@angular/forms";
 import{Router} from "@angular/router";
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './main.component.html',
+  
 })
-export class AppComponent {
+export class RegComponent {
   private myForm:FormGroup;
  private result:any;
  constructor(private _service:RegService,
