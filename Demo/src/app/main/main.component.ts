@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {RegService} from "../Service/app.service";
+//import {RegService} from "../Service/app.service";
+import { RegService } from  "../sample.service"
 import {HttpErrorResponse} from "@angular/common/http";
 import {FormGroup, FormControlName, FormControl} from "@angular/forms";
 import{Router} from "@angular/router";
@@ -10,10 +11,11 @@ import{Router} from "@angular/router";
 })
 export class RegComponent {
   private myForm:FormGroup;
+  public uname: FormControl;
  private result:any;
- constructor(private _service:RegService,
-              private _router:Router){this.myForm= new FormGroup({
-   uname:new FormControl(),
+ constructor(private _service:RegService, private _router:Router){
+ this.myForm= new FormGroup({
+   uname:new FormControl(""),
    ucity:new FormControl(),
    upwd:new FormControl(),
    gender:new FormControl(),
@@ -23,7 +25,8 @@ export class RegComponent {
 }
  ngOnInit(){
    this._service.getData().subscribe(res=>{
-     this.result=res;
+     this.result=res.user;
+     console.log(this.result);
    },(err:HttpErrorResponse)=>{
      if(err.error instanceof Error){
        console.log("Client Side Error");
@@ -32,7 +35,7 @@ export class RegComponent {
      }
    });
   }
-  public Register(){
+  public register(){
    window.localStorage.setItem("name", this.myForm['uname']);
    window.localStorage.setItem("password", this.myForm['upwd']);
    this._router.navigate(["/login_page"]);
