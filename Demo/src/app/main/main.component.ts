@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {RegService} from "../Service/app.service";
+import {AppService} from "../Service/app.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {FormGroup, FormControlName, FormControl} from "@angular/forms";
 import{Router} from "@angular/router";
@@ -11,7 +11,7 @@ import{Router} from "@angular/router";
 export class RegComponent {
   private myForm:FormGroup;
  private result:any;
- constructor(private _service:RegService,
+ constructor(private _service:AppService,
               private _router:Router){this.myForm= new FormGroup({
    uname:new FormControl(),
    ucity:new FormControl(),
@@ -20,6 +20,7 @@ export class RegComponent {
    ustate:new FormControl(),
    unum:new FormControl()
  })
+ console.log("added changes....");
 }
  ngOnInit(){
    this._service.getData().subscribe(res=>{
