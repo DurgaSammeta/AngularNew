@@ -10,9 +10,11 @@ import {FormsModule} from "@angular/forms";
 import {ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {LoginComponent} from "./login/login.component";
+import { FirstComponent } from './first/first.component';
+import { SecondComponent } from './second/second.component';
 @NgModule({
   declarations: [
-    RegComponent, LoginComponent
+    RegComponent, LoginComponent, FirstComponent, SecondComponent
       ],
   imports: [
     BrowserModule,
